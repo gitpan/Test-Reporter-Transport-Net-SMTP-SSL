@@ -1,11 +1,12 @@
 use warnings;
 use strict;
 BEGIN{ if (not $] < 5.006) { require warnings; warnings->import } }
+use 5.006;
 package Test::Reporter::Transport::Net::SMTP::SSL;
 use base 'Test::Reporter::Transport::Net::SMTP';
 use vars qw/$VERSION/;
-$VERSION = '0.1.1';
-$VERSION = eval $VERSION;
+
+$VERSION = '0.1.2';
 
 use Net::SMTP::SSL;
 

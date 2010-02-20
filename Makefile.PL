@@ -1,22 +1,17 @@
-use strict;
-use warnings;
-use ExtUtils::MakeMaker;
-use version;
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME                => 'Test::Reporter::Transport::Net::SMTP::SSL',
-    AUTHOR              => q{Theodore Robert Campbell Jr <trcjr@cpan.org>},
-    VERSION_FROM        => 'lib/Test/Reporter/Transport/Net/SMTP/SSL.pm',
-    ABSTRACT_FROM       => 'lib/Test/Reporter/Transport/Net/SMTP/SSL.pm',
-    (version->parse($ExtUtils::MakeMaker::VERSION) >= 6.3002
-      ? ('LICENSE'=> 'perl')
-      : ()),
-    PL_FILES            => {},
-    PREREQ_PM => {
-        'Test::More'        => 0,
-        'Test::Reporter'    => 0,
-        'Net::SMTP::SSL'    => 0,
-    },
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Test-Reporter-Transport-Net-SMTP-SSL-*' },
-);
+name     'Test-Reporter-Transport-Net-SMTP-SSL';
+all_from 'lib/Test/Reporter/Transport/Net/SMTP/SSL.pm';
+author   q{Theodore Robert Campbell Jr <trcjr@cpan.org>};
+license  'perl';
+
+version_from 'lib/Test/Reporter/Transport/Net/SMTP/SSL.pm';
+
+build_requires 'Test::More';
+build_requires 'Test::Reporter';
+build_requires 'Net::SMTP::SSL';
+
+auto_install;
+
+WriteAll;
+
